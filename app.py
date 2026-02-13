@@ -140,13 +140,13 @@ elif st.session_state.page == "yay":
         st.session_state.page = "message"
         st.rerun()
 
-# --- PAGE 4: MESSAGE (FIXED) ---
+# --- PAGE 4: MESSAGE (READABILITY FIX) ---
 elif st.session_state.page == "message":
     tulip_explosion()
     tulip_border()
     st.markdown("<h1 style='font-size: 2.5rem;'>For Amy 💌</h1>", unsafe_allow_html=True)
 
-    # We define the message here to avoid indentation errors in the HTML block
+    # I've added internal styles here to override the global white text
     amy_letter = (
         "I know this probably wasnt what you were expecting, whilest I was trying to think of "
         "what to get you I wanted to do something different. Since im not going to be seeing you today, "
@@ -164,12 +164,12 @@ elif st.session_state.page == "message":
     )
 
     st.markdown(f"""
-    <div style="background: white; padding: 30px; border-radius: 20px; color: black !important; text-align: center; border: 5px solid #000000; max-width: 500px; margin: auto;">
-        <h3 style="color: #a50000 !important; margin-top: 0;">My Dearest Amy,</h3>
-        <p style="color: black !important; font-size: 18px; line-height: 1.6; text-align: center; font-family: 'serif';">
+    <div style="background: white; padding: 30px; border-radius: 20px; border: 5px solid #000000; max-width: 500px; margin: auto;">
+        <h3 style="color: #a50000 !important; margin-top: 0; text-align: center; font-family: serif;">My Dearest Amy,</h3>
+        <p style="color: #000000 !important; font-size: 18px; line-height: 1.6; text-align: center; font-family: serif; margin-top: 20px;">
             {amy_letter}
         </p>
-        <h4 style="color: #a50000 !important; margin-bottom: 0;">Love, Isaac</h4>
+        <h4 style="color: #a50000 !important; margin-bottom: 0; text-align: center; font-family: serif; margin-top: 20px;">Love, Isaac</h4>
     </div>
     """, unsafe_allow_html=True)
 
@@ -178,8 +178,6 @@ elif st.session_state.page == "message":
     if st.button("Theres more??!"):
         st.session_state.page = "more"
         st.rerun()
-
-    st.markdown("<div style='height:20px;'></div>", unsafe_allow_html=True)
 
     if st.button("Back to start"):
         st.session_state.page = "home"
@@ -293,3 +291,4 @@ elif st.session_state.page == "memories":
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
+
