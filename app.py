@@ -241,11 +241,20 @@ elif st.session_state.page == "more":
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
-# --- PAGE 6: WHEN YOU MISS ME (FIXED COLOR & BOX) ---
+# --- PAGE 6: WHEN YOU MISS ME (FORCED BLACK TEXT) ---
 elif st.session_state.page == "miss_me":
+    # This block injects a global style to kill any white-text overrides
+    st.markdown("""
+        <style>
+        .force-black {
+            color: #000000 !important;
+            -webkit-text-fill-color: #000000 !important;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
     st.markdown("<h1 style='text-align: center;'>When you miss me 💙</h1>", unsafe_allow_html=True)
     
-    # Define the text with NO indentation at the start of the lines
     miss_me_text = """Hey Amy, if youre reading this its because for some reason im not available.
 Maybe its late at night, or im just busy. Either way my phones probably on Amy mode.
 
@@ -256,14 +265,13 @@ Whenever I hear you talking bad about yourself it makes me so upset, you deserve
 Youre the only girl in my eyes, and the only girl i'd ever want to see.
 You are so important to me. I dont want to ever loose you"""
 
-    # THE FIX: No spaces at the start of the lines below. 
-    # We use <span> to double-force the black color.
+    # We use -webkit-text-fill-color which is the strongest way to override browser themes
     st.markdown(f"""
-<div style="background-color: white; padding: 30px; border-radius: 20px; border: 3px solid black; max-width: 700px; margin: auto; text-align: center;">
-<h3 style="color: #a50000 !important; margin-top: 0; text-align: center;">My Sweet Amy,</h3>
-<div style="font-size: 18px; color: #000000 !important; white-space: pre-line; font-family: sans-serif; text-align: center;">
-<span style="color: #000000 !important;">{miss_me_text}</span>
-</div>
+<div style="background-color: white !important; padding: 30px; border-radius: 20px; border: 3px solid black; max-width: 700px; margin: auto; text-align: center;">
+    <h3 style="color: #a50000 !important; margin-top: 0; text-align: center;">My Sweet Amy,</h3>
+    <div class="force-black" style="font-size: 18px; color: #000000 !important; white-space: pre-line; font-family: sans-serif; text-align: center; -webkit-text-fill-color: #000000 !important;">
+{miss_me_text}
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -324,6 +332,7 @@ elif st.session_state.page == "memories":
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
+
 
 
 
