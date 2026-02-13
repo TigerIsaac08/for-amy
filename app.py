@@ -241,11 +241,10 @@ elif st.session_state.page == "more":
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
-# --- PAGE 6: WHEN YOU MISS ME ---
+# --- PAGE 6: WHEN YOU MISS ME (FIXED COLOR) ---
 elif st.session_state.page == "miss_me":
     st.markdown("<h1 style='text-align: center;'>When you miss me 💙</h1>", unsafe_allow_html=True)
     
-    # We define the text here so the HTML block stays clean
     miss_me_text = """Hey Amy, if youre reading this its because for some reason im not available.
 Maybe its late at night, or im just busy. Either way my phones probably on Amy mode.
 
@@ -256,9 +255,8 @@ Whenever I hear you talking bad about yourself it makes me so upset, you deserve
 Youre the only girl in my eyes, and the only girl i'd ever want to see.
 You are so important to me. I dont want to ever loose you"""
 
-    # THE NUCLEAR FIX: These lines MUST be flush against the left side of your editor
     st.markdown(f"""
-<div style="background: white; padding: 30px; border-radius: 20px; border: 3px solid black; max-width: 700px; margin: auto; text-align: center;">
+<div style="background: white; padding: 30px; border-radius: 20px; border: 3px solid black; max-width: 700px; margin: auto; text-align: center; color: black !important;">
 <h3 style="color: #a50000 !important; margin-top: 0;">My Sweet Amy,</h3>
 <div style="font-size: 18px; color: black !important; white-space: pre-line; font-family: sans-serif;">
 {miss_me_text}
@@ -267,12 +265,10 @@ You are so important to me. I dont want to ever loose you"""
 """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
-    
-    # Keeping your original layout for the 3 memory boxes
     cols = st.columns(3)
     for col in cols:
         with col:
-            st.markdown('<div style="height:150px; border:3px dashed black; border-radius:150px; background:#f8f8f8;"></div>', unsafe_allow_html=True)
+            st.markdown('<div style="height:150px; border:3px dashed black; border-radius:15px; background:#f8f8f8;"></div>', unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
     if st.button("Back"):
@@ -325,6 +321,7 @@ elif st.session_state.page == "memories":
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
+
 
 
 
