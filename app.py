@@ -190,7 +190,8 @@ I wish I could've been with you today.
         <div style="font-size: 18px; line-height: 1.6; text-align: center; font-family: serif;">
             {amy_letter}
         </div>
-        <h4 style="color: #a50000 !important; margin-top: 20px; text-align: center;">Love, Isaac</h4>
+        <h4 style="color: #a50000 !important; margin-top: 20px; text-align: center;">Lots of Love,<br>Isaac</h4>
+
     </div>
     """, unsafe_allow_html=True)
 
@@ -312,5 +313,6 @@ elif st.session_state.page == "memories":
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
+
 
 
