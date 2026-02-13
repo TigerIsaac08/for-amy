@@ -152,7 +152,7 @@ elif st.session_state.page == "message":
     tulip_border()
     st.markdown("<h1 style='font-size: 2.5rem;'>For Amy 💌</h1>", unsafe_allow_html=True)
 
-amy_letter = """
+    amy_letter = """
 I know this probably wasnt what you were expecting, whilst I was trying to think of what to get you I wanted to do something different.
 Since im not going to be seeing you today, I wanted something to give TODAY. Ive never been good at arts and craft so I wanted to do something
 you know ive put effort into, not just a long message.
@@ -181,6 +181,7 @@ You know how much I hate my smile, but for some reason every time I talk to you 
 
 I wish I could've been with you today.
 """
+
 
     # THE FIX: Added class="letter-box" to force black text
     st.markdown(f"""
@@ -311,4 +312,5 @@ elif st.session_state.page == "memories":
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
+
 
