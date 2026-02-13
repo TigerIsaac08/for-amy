@@ -140,65 +140,54 @@ elif st.session_state.page == "yay":
         st.session_state.page = "message"
         st.rerun()
 
-# --- PAGE 4: MESSAGE ---
-
+# --- PAGE 4: MESSAGE (FIXED) ---
 elif st.session_state.page == "message":
-
     tulip_explosion()
-
     tulip_border()
-
     st.markdown("<h1 style='font-size: 2.5rem;'>For Amy 💌</h1>", unsafe_allow_html=True)
 
-    
+    # We define the message here to avoid indentation errors in the HTML block
+    amy_letter = (
+        "I know this probably wasnt what you were expecting, whilest I was trying to think of "
+        "what to get you I wanted to do something different. Since im not going to be seeing you today, "
+        "I wanted something to give TODAY. Ive never been good at arts and craft so I wanted to do "
+        "something you know ive put effort into, not just a long message. <br><br>"
+        "Now, for the long message, I know its cringe but ill make a exception for this special day. "
+        "Happy valentines day! I know things havent been easy for you, im so incredibly proud of how you. "
+        "Youre doing so well with everything going on be able to manage it all at the same time, its really impressive Amy. "
+        "You really are the most amazing girl, youre thoughtful, emotionally intelligent alongside intellectual intellegence, "
+        "youre funny and not even to mention how beautiful you are. But above all of that, you make me happy. "
+        "You put a smile on my face whenever I need it, you cant even come close to understanding how much youve helped me "
+        "since we met. Although sometimes we may argue, we always make up. I love everything about you for you; "
+        "I love the way you smile when you do something cheeky, the way you laugh so incredibly real, you really are a "
+        "\"Shot of espresso\" in my life."
+    )
 
-    st.markdown("""
-
-    <div style="background: white; padding: 30px; border-radius: 20px; color: black; text-align: center; border: 5px solid #000000; max-width: 500px; margin: auto;">
-
-        <h3 style="color: #a50000 !important;">My Dearest Amy,</h3>
-
-        <p style="color: black !important; font-size: 18px; line-height: 1.6;">
-
-        I know this probably wasnt what you were expecting, whilest I was trying to think of what to get you I wanted to do something different. Since im not going to be seeing you today, I wanted something to give TODAY. Ive never been good at arts and craft so I wanted to do something you know ive put effort into, not just a long message. Now, for the long message, I know its cringe but ill make a exception for this special day. Happy valentines day! I know things havent been easy for you, im so incredibly proud of how you. Youre doing so well with everything going on be able to manage it all at the same time, its really impressive Amy. You really are the most amazing girl, youre thoughtful, emotionally intelligent alongside intellectual intellegence, youre funny and not even to mention how beautiful you are. But above all of that, you make me happy. You put a smile on my face whenever I need it, you cant even come close to understanding how much youve helped me since we met. Although sometimes we may argue, we always make up. I love everything about you for you; I love the way you smile when you do something cheeky, the way you laugh so incredibly real, you really are a "Shot of espresso" in my life. 
-
+    st.markdown(f"""
+    <div style="background: white; padding: 30px; border-radius: 20px; color: black !important; text-align: center; border: 5px solid #000000; max-width: 500px; margin: auto;">
+        <h3 style="color: #a50000 !important; margin-top: 0;">My Dearest Amy,</h3>
+        <p style="color: black !important; font-size: 18px; line-height: 1.6; text-align: center; font-family: 'serif';">
+            {amy_letter}
         </p>
-
-        <h4 style="color: #a50000;">Love, Isaac</h4>
-
+        <h4 style="color: #a50000 !important; margin-bottom: 0;">Love, Isaac</h4>
     </div>
-
     """, unsafe_allow_html=True)
-
-
 
     st.markdown("<div style='height:40px;'></div>", unsafe_allow_html=True)
 
-
-
     if st.button("Theres more??!"):
-
         st.session_state.page = "more"
-
         st.rerun()
-
-
 
     st.markdown("<div style='height:20px;'></div>", unsafe_allow_html=True)
 
-
-
     if st.button("Back to start"):
-
         st.session_state.page = "home"
-
         st.session_state.tulip_count = 0
-
         st.rerun()
 
 # --- PAGE 5: MORE (3 SECTIONS) ---
 elif st.session_state.page == "more":
-
     st.markdown("""
     <style>
     .section {
@@ -235,21 +224,17 @@ elif st.session_state.page == "more":
 
 # --- PAGE 6: WHEN YOU MISS ME ---
 elif st.session_state.page == "miss_me":
-
     st.markdown("<h1>When you miss me 💙</h1>", unsafe_allow_html=True)
-
     st.markdown("""
     <div style="background:white; padding:30px; border-radius:20px; 
     border:3px solid black; color:black; max-width:700px; margin:auto; text-align:center;">
         <h3 style="color:#a50000;">My Sweet Amy,</h3>
-        <p style="font-size:18px;">
+        <p style="font-size:18px; color: black !important;">
         [WRITE YOUR HEARTFELT MESSAGE HERE]
         </p>
     </div>
     """, unsafe_allow_html=True)
-
     st.markdown("<br>", unsafe_allow_html=True)
-
     cols = st.columns(3)
     for col in cols:
         with col:
@@ -257,20 +242,15 @@ elif st.session_state.page == "miss_me":
             <div style="height:150px; border:3px dashed black; 
             border-radius:15px; background:#f8f8f8;"></div>
             """, unsafe_allow_html=True)
-
     st.markdown("<br>", unsafe_allow_html=True)
-
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
 
 # --- PAGE 7: DATE GENERATOR ---
 elif st.session_state.page == "date":
-
     st.markdown("<h1>Random Date Generator 💕</h1>", unsafe_allow_html=True)
-
     st.write("I know you hate choosing, so i've came up with a few ideas you can look through and we can choose what to do")
-
     date_options = [
         "Movie night with homemade snacks 🍿",
         "Go out for dessert only 🍰",
@@ -281,19 +261,16 @@ elif st.session_state.page == "date":
         "Picnic date 🌷",
         "Arcade night 🕹️"
     ]
-
     if st.button("Click for date! 🎲"):
         st.session_state.date_result = random.choice(date_options)
-
     if st.session_state.date_result:
         st.markdown(f"""
         <div style="margin-top:30px; background:white; padding:25px;
-        border-radius:20px; border:3px solid black; color:black; 
+        border-radius:20px; border:3px solid black; color:black !important; 
         font-size:22px; text-align:center;">
         {st.session_state.date_result}
         </div>
         """, unsafe_allow_html=True)
-
     if st.button("Back"):
         st.session_state.page = "more"
         st.session_state.date_result = None
@@ -301,25 +278,18 @@ elif st.session_state.page == "date":
 
 # --- PAGE 8: MEMORIES ---
 elif st.session_state.page == "memories":
-
     st.markdown("<h1>Our Memories 💙</h1>", unsafe_allow_html=True)
-
     for i in range(3):
         st.markdown("""
         <div style="margin-bottom:40px;">
             <div style="height:200px; border:3px dashed black; 
             border-radius:15px; background:#f0f0f0;"></div>
             <div style="background:white; padding:15px; border-radius:10px;
-            margin-top:10px; border:2px solid black; color:black;">
+            margin-top:10px; border:2px solid black; color:black !important;">
             Memory description goes here...
             </div>
         </div>
         """, unsafe_allow_html=True)
-
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
-
-
-
-
