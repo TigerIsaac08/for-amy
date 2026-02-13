@@ -141,52 +141,59 @@ elif st.session_state.page == "yay":
         st.rerun()
 
 # --- PAGE 4: MESSAGE ---
-elif st.session_state.page == "message":
-    tulip_explosion()
-    tulip_border()
-    st.markdown("<h1 style='font-size: 2.5rem;'>For Amy 💌</h1>", unsafe_allow_html=True)
-    
-    # We use a f-string here to keep the text clean and manageable
-    amy_message = """
-    I know this probably wasn't what you were expecting, but while I was trying to think of 
-    what to get you, I wanted to do something different. Since I'm not going to be seeing 
-    you today, I wanted something to give TODAY. I've never been good at arts and crafts, 
-    so I wanted to do something you know I've put effort into, not just a long message. 
-    <br><br>
-    Now, for the long message—I know it's cringe, but I'll make an exception for this 
-    special day. Happy Valentine's Day! I know things haven't been easy for you lately, 
-    and I'm so incredibly proud of you. You're doing so well managing everything going on 
-    all at the same time; it's really impressive, Amy. 
-    <br><br>
-    You really are the most amazing girl. You're thoughtful, emotionally intelligent 
-    alongside your intellectual intelligence, you're funny, and that's not even 
-    mentioning how beautiful you are. But above all of that, you make me happy. 
-    You put a smile on my face whenever I need it; you can't even come close to 
-    understanding how much you've helped me since we met. Although sometimes we 
-    may argue, we always make up.
-    """
 
-    st.markdown(f"""
-    <div style="background: white; padding: 30px; border-radius: 20px; color: black !important; text-align: center; border: 5px solid #000000; max-width: 500px; margin: auto;">
-        <h3 style="color: #a50000 !important; margin-top: 0;">My Dearest Amy,</h3>
-        <p style="color: black !important; font-size: 18px; line-height: 1.6; text-align: center;">
-            {amy_message}
+elif st.session_state.page == "message":
+
+    tulip_explosion()
+
+    tulip_border()
+
+    st.markdown("<h1 style='font-size: 2.5rem;'>For Amy 💌</h1>", unsafe_allow_html=True)
+
+    
+
+    st.markdown("""
+
+    <div style="background: white; padding: 30px; border-radius: 20px; color: black; text-align: center; border: 5px solid #000000; max-width: 500px; margin: auto;">
+
+        <h3 style="color: #a50000 !important;">My Dearest Amy,</h3>
+
+        <p style="color: black !important; font-size: 18px; line-height: 1.6;">
+
+        I know this probably wasnt what you were expecting, whilest I was trying to think of what to get you I wanted to do something different. Since im not going to be seeing you today, I wanted something to give TODAY. Ive never been good at arts and craft so I wanted to do something you know ive put effort into, not just a long message. Now, for the long message, I know its cringe but ill make a exception for this special day. Happy valentines day! I know things havent been easy for you, im so incredibly proud of how you. Youre doing so well with everything going on be able to manage it all at the same time, its really impressive Amy. You really are the most amazing girl, youre thoughtful, emotionally intelligent alongside intellectual intellegence, youre funny and not even to mention how beautiful you are. But above all of that, you make me happy. You put a smile on my face whenever I need it, you cant even come close to understanding how much youve helped me since we met. Although sometimes we may argue, we always make up. I love everything about you for you; I love the way you smile when you do something cheeky, the way you laugh so incredibly real, you really are a "Shot of espresso" in my life. 
+
         </p>
-        <h4 style="color: #a50000 !important; margin-bottom: 0;">Love, Isaac</h4>
+
+        <h4 style="color: #a50000;">Love, Isaac</h4>
+
     </div>
+
     """, unsafe_allow_html=True)
+
+
 
     st.markdown("<div style='height:40px;'></div>", unsafe_allow_html=True)
 
-    if st.button("There's more??!"):
+
+
+    if st.button("Theres more??!"):
+
         st.session_state.page = "more"
+
         st.rerun()
+
+
 
     st.markdown("<div style='height:20px;'></div>", unsafe_allow_html=True)
 
+
+
     if st.button("Back to start"):
+
         st.session_state.page = "home"
+
         st.session_state.tulip_count = 0
+
         st.rerun()
 
 # --- PAGE 5: MORE (3 SECTIONS) ---
@@ -312,6 +319,7 @@ elif st.session_state.page == "memories":
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
+
 
 
 
