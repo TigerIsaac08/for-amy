@@ -244,15 +244,26 @@ elif st.session_state.page == "more":
 # --- PAGE 6: WHEN YOU MISS ME ---
 elif st.session_state.page == "miss_me":
     st.markdown("<h1>When you miss me 💙</h1>", unsafe_allow_html=True)
-    st.markdown("""
-    <div class="letter-box" style="background:white; padding:30px; border-radius:20px; 
-    border:3px solid black; max-width:700px; margin:auto; text-align:center;">
-        <h3 style="color:#a50000 !important;">My Sweet Amy,</h3>
-        <div style="font-size:18px;">
-        [WRITE YOUR HEARTFELT MESSAGE HERE]
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    
+    miss_me_text = """Hey Amy, if youre reading this its because for some reason im not available.
+    Maybe its late at night, or im just busy. Either way my phones probably on Amy mode.
+
+    This page is made so that if you do miss me, and you cant talk to me you can come here and look at your favourite memories with me. Obviously, its empty right now. If you'd like anything here please tell me and ill add it in.
+
+    Amy, you are the most gorgeous girl in my eyes.
+    Whenever I hear you talking bad about yourself it makes me so upset, you deserve the world because you are the best.
+    Youre the only girl in my eyes, and the only girl i'd ever want to see.
+    You are so important to me. I dont want to ever loose you"""
+
+    st.markdown(f"""
+<div class="letter-box" style="background:white; padding:30px; border-radius:20px; border:3px solid black; max-width:700px; margin:auto; text-align:center; color: black !important;">
+<h3 style="color:#a50000 !important; margin-top: 0;">My Sweet Amy,</h3>
+<div style="font-size:18px; color: black !important; white-space: pre-line;">
+{miss_me_text}
+</div>
+</div>
+""", unsafe_allow_html=True)
+
     st.markdown("<br>", unsafe_allow_html=True)
     cols = st.columns(3)
     for col in cols:
@@ -261,11 +272,11 @@ elif st.session_state.page == "miss_me":
             <div style="height:150px; border:3px dashed black; 
             border-radius:15px; background:#f8f8f8;"></div>
             """, unsafe_allow_html=True)
+
     st.markdown("<br>", unsafe_allow_html=True)
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
-
 # --- PAGE 7: DATE GENERATOR ---
 elif st.session_state.page == "date":
     st.markdown("<h1>Random Date Generator 💕</h1>", unsafe_allow_html=True)
@@ -312,6 +323,7 @@ elif st.session_state.page == "memories":
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
+
 
 
 
