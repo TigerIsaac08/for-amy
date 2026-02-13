@@ -186,41 +186,41 @@ elif st.session_state.page == "message":
         st.session_state.tulip_count = 0
         st.rerun()
 
-# --- PAGE 5: MORE (3 SECTIONS) ---
+# --- PAGE 5: MORE (BUTTONS INSIDE COLOR) ---
 elif st.session_state.page == "more":
+    # Custom CSS to apply background to the container block
     st.markdown("""
-    <style>
-    .section {
-        height: 30vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-top: 2px solid black;
-        border-bottom: 2px solid black;
-    }
-    .top { background-color: #40E0D0; }
-    .middle { background-color: #ff4b4b; }
-    .bottom { background-color: #4b6cff; }
-    </style>
+        <style>
+            .top-bg { background-color: #40E0D0 !important; padding: 60px 0; width: 100vw; border-top: 2px solid black; border-bottom: 2px solid black; }
+            .middle-bg { background-color: #ff4b4b !important; padding: 60px 0; width: 100vw; border-bottom: 2px solid black; }
+            .bottom-bg { background-color: #4b6cff !important; padding: 60px 0; width: 100vw; border-bottom: 2px solid black; }
+        </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div class="section top">', unsafe_allow_html=True)
+    # Section 1
+    st.markdown('<div class="top-bg">', unsafe_allow_html=True)
     if st.button("When you miss me"):
         st.session_state.page = "miss_me"
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
-    st.markdown('<div class="section middle">', unsafe_allow_html=True)
+    # Section 2
+    st.markdown('<div class="middle-bg">', unsafe_allow_html=True)
     if st.button("Random Date generator!"):
         st.session_state.page = "date"
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
-    st.markdown('<div class="section bottom">', unsafe_allow_html=True)
+    # Section 3
+    st.markdown('<div class="bottom-bg">', unsafe_allow_html=True)
     if st.button("Memories!"):
         st.session_state.page = "memories"
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
+
+    if st.button("Back"):
+        st.session_state.page = "message"
+        st.rerun()
 
 # --- PAGE 6: WHEN YOU MISS ME ---
 elif st.session_state.page == "miss_me":
@@ -293,3 +293,4 @@ elif st.session_state.page == "memories":
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
+
