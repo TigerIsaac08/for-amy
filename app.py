@@ -48,8 +48,9 @@ st.markdown("""
     justify-content: center;
 }
 
-h1, h2, h3, p {
-    color: white !important;
+/* Global text is white UNLESS specified otherwise */
+h1, h2, h3, p, span, div {
+    color: white;
     text-align: center;
     font-family: 'serif';
 }
@@ -140,36 +141,32 @@ elif st.session_state.page == "yay":
         st.session_state.page = "message"
         st.rerun()
 
-# --- PAGE 4: MESSAGE (READABILITY FIX) ---
+# --- PAGE 4: MESSAGE (FIXED BLACK TEXT) ---
 elif st.session_state.page == "message":
     tulip_explosion()
     tulip_border()
     st.markdown("<h1 style='font-size: 2.5rem;'>For Amy 💌</h1>", unsafe_allow_html=True)
 
-    # I've added internal styles here to override the global white text
     amy_letter = (
-        "I know this probably wasnt what you were expecting, whilest I was trying to think of "
-        "what to get you I wanted to do something different. Since im not going to be seeing you today, "
-        "I wanted something to give TODAY. Ive never been good at arts and craft so I wanted to do "
-        "something you know ive put effort into, not just a long message. <br><br>"
-        "Now, for the long message, I know its cringe but ill make a exception for this special day. "
-        "Happy valentines day! I know things havent been easy for you, im so incredibly proud of how you. "
-        "Youre doing so well with everything going on be able to manage it all at the same time, its really impressive Amy. "
-        "You really are the most amazing girl, youre thoughtful, emotionally intelligent alongside intellectual intellegence, "
-        "youre funny and not even to mention how beautiful you are. But above all of that, you make me happy. "
-        "You put a smile on my face whenever I need it, you cant even come close to understanding how much youve helped me "
-        "since we met. Although sometimes we may argue, we always make up. I love everything about you for you; "
-        "I love the way you smile when you do something cheeky, the way you laugh so incredibly real, you really are a "
-        "\"Shot of espresso\" in my life."
+        "I know this probably wasnt what you were expecting, whilest I was trying to think of what to get you I wanted to do something different. "
+        "Since im not going to be seeing you today, I wanted something to give TODAY. Ive never been good at arts and craft so I wanted to do something "
+        "you know ive put effort into, not just a long message. <br><br> Now, for the long message, I know its cringe but ill make a exception for this "
+        "special day. Happy valentines day! I know things havent been easy for you, im so incredibly proud of how you. Youre doing so well with everything "
+        "going on be able to manage it all at the same time, its really impressive Amy. <br><br> You really are the most amazing girl, youre thoughtful, "
+        "emotionally intelligent alongside intellectual intellegence, youre funny and not even to mention how beautiful you are. But above all of that, "
+        "you make me happy. You put a smile on my face whenever I need it, you cant even come close to understanding how much youve helped me since we met. "
+        "Although sometimes we may argue, we always make up. I love everything about you for you; I love the way you smile when you do something cheeky, "
+        "the way you laugh so incredibly real, you really are a \"Shot of espresso\" in my life."
     )
 
+    # Use a div with !important colors to override the white background
     st.markdown(f"""
-    <div style="background: white; padding: 30px; border-radius: 20px; border: 5px solid #000000; max-width: 500px; margin: auto;">
-        <h3 style="color: #a50000 !important; margin-top: 0; text-align: center; font-family: serif;">My Dearest Amy,</h3>
-        <p style="color: #000000 !important; font-size: 18px; line-height: 1.6; text-align: center; font-family: serif; margin-top: 20px;">
+    <div style="background-color: white; padding: 30px; border-radius: 20px; border: 5px solid #000000; max-width: 500px; margin: auto;">
+        <h3 style="color: #a50000 !important; margin-top: 0; text-align: center;">My Dearest Amy,</h3>
+        <div style="color: black !important; font-size: 18px; line-height: 1.6; text-align: center; font-family: serif;">
             {amy_letter}
-        </p>
-        <h4 style="color: #a50000 !important; margin-bottom: 0; text-align: center; font-family: serif; margin-top: 20px;">Love, Isaac</h4>
+        </div>
+        <h4 style="color: #a50000 !important; margin-top: 20px; text-align: center;">Love, Isaac</h4>
     </div>
     """, unsafe_allow_html=True)
 
@@ -225,11 +222,11 @@ elif st.session_state.page == "miss_me":
     st.markdown("<h1>When you miss me 💙</h1>", unsafe_allow_html=True)
     st.markdown("""
     <div style="background:white; padding:30px; border-radius:20px; 
-    border:3px solid black; color:black; max-width:700px; margin:auto; text-align:center;">
-        <h3 style="color:#a50000;">My Sweet Amy,</h3>
-        <p style="font-size:18px; color: black !important;">
+    border:3px solid black; color:black !important; max-width:700px; margin:auto; text-align:center;">
+        <h3 style="color:#a50000 !important;">My Sweet Amy,</h3>
+        <div style="color: black !important; font-size:18px;">
         [WRITE YOUR HEARTFELT MESSAGE HERE]
-        </p>
+        </div>
     </div>
     """, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
@@ -278,17 +275,16 @@ elif st.session_state.page == "date":
 elif st.session_state.page == "memories":
     st.markdown("<h1>Our Memories 💙</h1>", unsafe_allow_html=True)
     for i in range(3):
-        st.markdown("""
+        st.markdown(f"""
         <div style="margin-bottom:40px;">
             <div style="height:200px; border:3px dashed black; 
             border-radius:15px; background:#f0f0f0;"></div>
             <div style="background:white; padding:15px; border-radius:10px;
-            margin-top:10px; border:2px solid black; color:black !important;">
-            Memory description goes here...
+            margin-top:10px; border:2px solid black; color:black !important; text-align: center;">
+            Memory description {i+1} goes here...
             </div>
         </div>
         """, unsafe_allow_html=True)
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
-
