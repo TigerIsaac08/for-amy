@@ -48,14 +48,12 @@ st.markdown("""
     justify-content: center;
 }
 
-/* Global text is white */
 h1, h2, h3, p, span, div {
     color: white;
     text-align: center;
     font-family: 'serif';
 }
 
-/* THE FIX: Specifically target the letter box and everything inside it to be BLACK */
 .letter-box, .letter-box * {
     color: #000000 !important;
 }
@@ -146,36 +144,49 @@ elif st.session_state.page == "yay":
         st.session_state.page = "message"
         st.rerun()
 
-# --- PAGE 4: MESSAGE (FIXED BLACK TEXT) ---
+# --- PAGE 4: MESSAGE ---
 elif st.session_state.page == "message":
     tulip_explosion()
     tulip_border()
     st.markdown("<h1 style='font-size: 2.5rem;'>For Amy 💌</h1>", unsafe_allow_html=True)
 
-    amy_letter = (
-        "I know this probably wasnt what you were expecting, whilest I was trying to think of what to get you I wanted to do something different. "
-        "Since im not going to be seeing you today, I wanted something to give TODAY. Ive never been good at arts and craft so I wanted to do something "
-        "you know i've put effort into, not just a long message. <br><br> Now, for the long message, I know its cringe but ill make a exception for this "
-        "special day. Happy valentines day! I know things havent been easy for you, im so incredibly proud of how you. You're doing so well with everything "
-        "going on be able to manage it all at the same time, its really impressive Amy. <br><br> You really are the most amazing girl, you're thoughtful, "
-        "emotionally intelligent alongside intellectual intellegence, youre funny, I could go on for hours and not even to mention how beautiful you are. But above all of that, "
-        "you make me happy. You put a smile on my face whenever I need it, you cant even come close to understanding how much youve helped me since we met. "
-        "Although sometimes we may argue, we always make up. I love everything about you for you; I love the way you smile when you do something cheeky, "
-        "the way you laugh so incredibly real, you really are a \"Shot of espresso\" in my life. I know we havent been as close as before recently and ive missed it"
-        "I want to show you how much I care, and I want to be cared about the same way I do about you. <br><br>"
-        "I wish you could see yourself the way I see you, whenever youre feeling insecure if you could just see it the way I do you'd never be insecure again."
-        "Being with you makes everything feel right. You know how much I hate my smile, but for some reason every time I talk to you I just cant stop."
-        "I wish I could've been with you today.")
-    )
+    amy_letter = """
+    I know this probably wasnt what you were expecting, whilst I was trying to think of what to get you I wanted to do something different.
+    Since im not going to be seeing you today, I wanted something to give TODAY. Ive never been good at arts and craft so I wanted to do something
+    you know i've put effort into, not just a long message.
 
-    # THE FIX: Added class="letter-box" to force black text
+    Now, for the long message, I know its cringe but ill make a exception for this special day. Happy valentines day!
+    I know things havent been easy for you, im so incredibly proud of you. You're doing so well with everything
+    going on and being able to manage it all at the same time, its really impressive Amy.
+
+    You really are the most amazing girl, you're thoughtful, emotionally intelligent alongside intellectual intelligence,
+    youre funny, I could go on for hours and not even to mention how beautiful you are.
+    But above all of that, you make me happy.
+
+    You put a smile on my face whenever I need it, you cant even come close to understanding how much youve helped me since we met.
+    Although sometimes we may argue, we always make up.
+
+    I love everything about you for you; I love the way you smile when you do something cheeky,
+    the way you laugh so incredibly real, you really are a "Shot of espresso" in my life.
+    I know we havent been as close as before recently and ive missed it.
+
+    I want to show you how much I care, and I want to be cared about the same way I do about you.
+
+    I wish you could see yourself the way I see you, whenever youre feeling insecure if you could just see it the way I do you'd never be insecure again.
+    Being with you makes everything feel right.
+
+    You know how much I hate my smile, but for some reason every time I talk to you I just cant stop.
+
+    I wish I could've been with you today.
+    """
+
     st.markdown(f"""
     <div class="letter-box" style="background-color: white; padding: 30px; border-radius: 20px; border: 5px solid #000000; max-width: 500px; margin: auto;">
-        <h3 style="color: #a50000 !important; margin-top: 0; text-align: center;">My Dearest Amy,</h3>
-        <div style="font-size: 18px; line-height: 1.6; text-align: center; font-family: serif;">
+        <h3 style="color: #a50000 !important; margin-top: 0;">My Dearest Amy,</h3>
+        <div style="font-size: 18px; line-height: 1.6;">
             {amy_letter}
         </div>
-        <h4 style="color: #a50000 !important; margin-top: 20px; text-align: center;">Lots of Love, Isaac</h4>
+        <h4 style="color: #a50000 !important; margin-top: 20px;">Lots of Love, Isaac</h4>
     </div>
     """, unsafe_allow_html=True)
 
@@ -189,166 +200,3 @@ elif st.session_state.page == "message":
         st.session_state.page = "home"
         st.session_state.tulip_count = 0
         st.rerun()
-
-# --- PAGE 5: MORE (3 SECTIONS) ---
-
-elif st.session_state.page == "more":
-
-    st.markdown("""
-
-    <style>
-
-    .section {
-
-        height: 30vh;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        border-top: 2px solid black;
-
-        border-bottom: 2px solid black;
-
-    }
-
-    .top { background-color: #40E0D0; }
-
-    .middle { background-color: #ff4b4b; }
-
-    .bottom { background-color: #4b6cff; }
-
-    </style>
-
-    """, unsafe_allow_html=True)
-
-
-
-    st.markdown('<div class="section top">', unsafe_allow_html=True)
-
-    if st.button("When you miss me"):
-
-        st.session_state.page = "miss_me"
-
-        st.rerun()
-
-    st.markdown('</div>', unsafe_allow_html=True)
-
-
-
-    st.markdown('<div class="section middle">', unsafe_allow_html=True)
-
-    if st.button("Random Date generator!"):
-
-        st.session_state.page = "date"
-
-        st.rerun()
-
-    st.markdown('</div>', unsafe_allow_html=True)
-
-
-
-    st.markdown('<div class="section bottom">', unsafe_allow_html=True)
-
-    if st.button("Memories!"):
-
-        st.session_state.page = "memories"
-
-        st.rerun()
-
-    st.markdown('</div>', unsafe_allow_html=True)
-
-# --- PAGE 6: WHEN YOU MISS ME ---
-elif st.session_state.page == "miss_me":
-    st.markdown("<h1>When you miss me 💙</h1>", unsafe_allow_html=True)
-    st.markdown("""
-    <div class="letter-box" style="background:white; padding:30px; border-radius:20px; 
-    border:3px solid black; max-width:700px; margin:auto; text-align:center;">
-        <h3 style="color:#a50000 !important;">My Sweet Amy,</h3>
-        <div style="font-size:18px;">
-        "Hey Amy, if youre reading this its because for some reason im not available. Maybe its late at night, or im just busy. Either way my phones probably on Amy mode."
-        "This page is made so that if you do miss me, and you cant talk to me you can come here and look at your favourite memories with me. Obviously, its empty right now."
-        "If you'd like anything here please tell me and ill add it in. <br><br> Amy, you are the most gorgeous girl in my eyes. Whenever I hear you talking bad about yourself"
-        "it makes me so upset, you deserve the world because you are the best. Youre the only girl in my eyes, and the only girl i'd ever want to see you are so important to me."
-        
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    cols = st.columns(3)
-    for col in cols:
-        with col:
-            st.markdown("""
-            <div style="height:150px; border:3px dashed black; 
-            border-radius:15px; background:#f8f8f8;"></div>
-            """, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    if st.button("Back"):
-        st.session_state.page = "more"
-        st.rerun()
-
-# --- PAGE 7: DATE GENERATOR ---
-elif st.session_state.page == "date":
-    st.markdown("<h1>Random Date Generator 💕</h1>", unsafe_allow_html=True)
-    st.write("I know you hate choosing, so i've came up with a few ideas you can look through and we can choose what to do")
-    date_options = [
-        "Movie night with homemade snacks ",
-        "Go out for dessert only ",
-        "Sunset walk  ",
-        "Cooking together",
-        "Mini road trip somewhere random ",
-        "Bowling + Arcade",
-        "Picnic date ",
-        "Arcade night ",
-        "POTTERY!!!",
-        "Zoo date \(im picky about where)\",
-        "Go to watch Rally"
-        "Watch Football \(we're doing this atleast once)\"
-        "David Attenborough in London"
-        "Water park!"
-        "Local Gardens"
-        "Mini golf"
-        "Escape room"
-        "Strawberry picking"
-        "Dirt biking"
-        "Rock climbing"
-        "Aquarium"
-        
-    ]
-    if st.button("Click for date! 🎲"):
-        st.session_state.date_result = random.choice(date_options)
-    if st.session_state.date_result:
-        st.markdown(f"""
-        <div class="letter-box" style="margin-top:30px; background:white; padding:25px;
-        border-radius:20px; border:3px solid black; 
-        font-size:22px; text-align:center;">
-        {st.session_state.date_result}
-        </div>
-        """, unsafe_allow_html=True)
-    if st.button("Back"):
-        st.session_state.page = "more"
-        st.session_state.date_result = None
-        st.rerun()
-
-# --- PAGE 8: MEMORIES ---
-elif st.session_state.page == "memories":
-    st.markdown("<h1>Our Memories 💙</h1>", unsafe_allow_html=True)
-    for i in range(3):
-        st.markdown(f"""
-        <div style="margin-bottom:40px;">
-            <div style="height:200px; border:3px dashed black; 
-            border-radius:15px; background:#f0f0f0;"></div>
-            <div class="letter-box" style="background:white; padding:15px; border-radius:10px;
-            margin-top:10px; border:2px solid black; text-align: center;">
-            Memory description {i+1} goes here...
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-    if st.button("Back"):
-        st.session_state.page = "more"
-        st.rerun()
-
-
-
