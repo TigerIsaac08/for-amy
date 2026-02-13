@@ -293,12 +293,25 @@ elif st.session_state.page == "date":
     date_options = [
         "Movie night with homemade snacks 🍿",
         "Go out for dessert only 🍰",
-        "Sunset walk + takeaway coffee ☕",
-        "Cook a new recipe together 👩‍🍳",
+        "Sunset walk 🌅",
+        "Cooking together 👩‍🍳",
         "Mini road trip somewhere random 🚗",
-        "Bowling + loser buys drinks Bowling",
+        "Bowling + Arcade 🎳",
         "Picnic date 🌷",
-        "Arcade night 🕹️"
+        "Arcade night 🕹️",
+        "POTTERY!!! 🏺",
+        "Zoo date (im picky about where) 🦁",
+        "Go to watch Rally 🏎️",
+        "Watch Football (we're doing this atleast once) ⚽",
+        "David Attenborough in London 🌍",
+        "Water park! 🌊",
+        "Local Gardens 🌳",
+        "Mini golf ⛳",
+        "Escape room 🔑",
+        "Strawberry picking 🍓",
+        "Dirt biking 🏍️",
+        "Rock climbing 🧗",
+        "Aquarium 🐠"
     ]
     if st.button("Click for date! 🎲"):
         st.session_state.date_result = random.choice(date_options)
@@ -332,6 +345,7 @@ elif st.session_state.page == "memories":
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
+
 
 
 
