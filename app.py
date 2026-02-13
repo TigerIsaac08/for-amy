@@ -241,10 +241,11 @@ elif st.session_state.page == "more":
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
-# --- PAGE 6: WHEN YOU MISS ME (FIXED COLOR) ---
+# --- PAGE 6: WHEN YOU MISS ME (FIXED COLOR & BOX) ---
 elif st.session_state.page == "miss_me":
     st.markdown("<h1 style='text-align: center;'>When you miss me 💙</h1>", unsafe_allow_html=True)
     
+    # Define the text with NO indentation at the start of the lines
     miss_me_text = """Hey Amy, if youre reading this its because for some reason im not available.
 Maybe its late at night, or im just busy. Either way my phones probably on Amy mode.
 
@@ -255,11 +256,13 @@ Whenever I hear you talking bad about yourself it makes me so upset, you deserve
 Youre the only girl in my eyes, and the only girl i'd ever want to see.
 You are so important to me. I dont want to ever loose you"""
 
+    # THE FIX: No spaces at the start of the lines below. 
+    # We use <span> to double-force the black color.
     st.markdown(f"""
-<div style="background: white; padding: 30px; border-radius: 20px; border: 3px solid black; max-width: 700px; margin: auto; text-align: center; color: black !important;">
-<h3 style="color: #a50000 !important; margin-top: 0;">My Sweet Amy,</h3>
-<div style="font-size: 18px; color: black !important; white-space: pre-line; font-family: sans-serif;">
-{miss_me_text}
+<div style="background-color: white; padding: 30px; border-radius: 20px; border: 3px solid black; max-width: 700px; margin: auto; text-align: center;">
+<h3 style="color: #a50000 !important; margin-top: 0; text-align: center;">My Sweet Amy,</h3>
+<div style="font-size: 18px; color: #000000 !important; white-space: pre-line; font-family: sans-serif; text-align: center;">
+<span style="color: #000000 !important;">{miss_me_text}</span>
 </div>
 </div>
 """, unsafe_allow_html=True)
@@ -274,7 +277,7 @@ You are so important to me. I dont want to ever loose you"""
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
-        
+
 # --- PAGE 7: DATE GENERATOR ---
 elif st.session_state.page == "date":
     st.markdown("<h1>Random Date Generator 💕</h1>", unsafe_allow_html=True)
@@ -321,6 +324,7 @@ elif st.session_state.page == "memories":
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
+
 
 
 
