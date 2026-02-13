@@ -146,7 +146,7 @@ elif st.session_state.page == "yay":
         st.session_state.page = "message"
         st.rerun()
 
-# --- PAGE 4: MESSAGE (FIXED BLACK TEXT) ---
+# --- PAGE 4: MESSAGE (FIXED BOX & TEXT) ---
 elif st.session_state.page == "message":
     tulip_explosion()
     tulip_border()
@@ -182,18 +182,17 @@ You know how much I hate my smile, but for some reason every time I talk to you 
 I wish I could've been with you today.
 """
 
-
-    # THE FIX: Added class="letter-box" to force black text
+    # CRITICAL: The <div tags below MUST start at the very left edge of your screen 
+    # to prevent Streamlit from turning them into a "code block".
     st.markdown(f"""
-    <div class="letter-box" style="background-color: white; padding: 30px; border-radius: 20px; border: 5px solid #000000; max-width: 500px; margin: auto;">
-        <h3 style="color: #a50000 !important; margin-top: 0; text-align: center;">My Dearest Amy,</h3>
-        <div style="font-size: 18px; line-height: 1.6; text-align: center; font-family: serif;">
-            {amy_letter}
-        </div>
-        <h4 style="color: #a50000 !important; margin-top: 20px; text-align: center;">Lots of Love,<br>Isaac</h4>
-
-    </div>
-    """, unsafe_allow_html=True)
+<div class="letter-box" style="background-color: white; padding: 30px; border-radius: 20px; border: 5px solid #000000; max-width: 500px; margin: auto; color: black !important;">
+<h3 style="color: #a50000 !important; margin-top: 0; text-align: center;">My Dearest Amy,</h3>
+<div style="font-size: 18px; line-height: 1.6; text-align: center; font-family: serif; color: black !important; white-space: pre-line;">
+{amy_letter}
+</div>
+<h4 style="color: #a50000 !important; margin-top: 20px; text-align: center;">I love you so much,<br>Isaac</h4>
+</div>
+""", unsafe_allow_html=True)
 
     st.markdown("<div style='height:40px;'></div>", unsafe_allow_html=True)
 
@@ -313,6 +312,7 @@ elif st.session_state.page == "memories":
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
+
 
 
 
