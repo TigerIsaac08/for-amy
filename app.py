@@ -3,7 +3,7 @@ import streamlit.components.v1 as components
 import random
 
 # 1. Setup the page
-st.set_page_config(page_title="For Amy ❤️", page_icon="🌷")
+st.set_page_config(page_title="For YAMY ❤️", page_icon="🌷")
 
 # --- CUSTOM ANIMATION FUNCTION ---
 def tulip_explosion():
@@ -150,7 +150,7 @@ elif st.session_state.page == "message":
     <div style="background: white; padding: 30px; border-radius: 20px; color: black; text-align: center; border: 5px solid #000000; max-width: 500px; margin: auto;">
         <h3 style="color: #a50000 !important;">My Dearest Amy,</h3>
         <p style="color: black !important; font-size: 18px; line-height: 1.6;">
-        [WRITE YOUR LONG MESSAGE HERE]
+        I know this probably wasnt what you were expecting, whilest I was trying to think of what to get you I wanted to do something different. Since im not going to be seeing you today, I wanted something to give TODAY. Ive never been good at arts and craft so I wanted to do something you know ive put effort into, not just a long message. Now, for the long message, I know its cringe but ill make a exception for this special day. Happy valentines day! I know things havent been easy for you, im so incredibly proud of how you. Youre doing so well with everything going on be able to manage it all at the same time, its really impressive Amy. You really are the most amazing girl, youre thoughtful, emotionally intelligent alongside intellectual intellegence, youre funny and not even to mention how beautiful you are. But above all of that, you make me happy. You put a smile on my face whenever I need it, you cant even come close to understanding how much youve helped me since we met. Although sometimes we may argue, we always make up. 
         </p>
         <h4 style="color: #a50000;">Love, Isaac</h4>
     </div>
@@ -292,4 +292,5 @@ elif st.session_state.page == "memories":
     if st.button("Back"):
         st.session_state.page = "more"
         st.rerun()
+
 
